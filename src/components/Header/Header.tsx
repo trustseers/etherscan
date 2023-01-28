@@ -60,29 +60,29 @@ const Header = () => {
                     <div>
                         <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                                <li className="text-gray-400 hover:text-indigo-200 text-sm">
+                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
                                     <a href="#">Home</a>
                                 </li>
-                                <li className="text-gray-400 hover:text-indigo-200 text-sm">
-                                    <a href="#">Blockchain</a>
+                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
+                                    <a href="#">Blockchain <i className="fa fa-angle-down" ></i></a>
                                 </li>
-                                <li className="text-gray-400 hover:text-indigo-200 text-sm">
-                                    <a href="#">Tokens</a>
+                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
+                                    <a href="#">Tokens <i className="fa fa-angle-down" ></i></a>
                                 </li>
-                                <li className="text-gray-400 hover:text-indigo-200 text-sm">
-                                    <a href="#">Resources</a>
+                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
+                                    <a href="#">Resources <i className="fa fa-angle-down" ></i></a>
                                 </li>
-                                <li className="text-gray-400 hover:text-indigo-200 text-sm">
-                                    <a href="#">More</a>
-                                </li>
-                                <li className="divide-x text-gray-400">
-                                </li>
-                                <li className="divide-x text-gray-400 hover:text-indigo-200 text-sm">
-                                    <a href="#">Sign in</a>
+                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
+                                    <a href="#">More <i className="fa fa-angle-down" ></i></a>
                                 </li>
                                 <li className="divide-x text-gray-400">
                                 </li>
-                                <li className="text-gray-400 hover:text-indigo-200 text-sm">
+                                <li className="divide-x text-gray-400 hover:text-[#3498db] text-sm">
+                                    <a href="#"><i className="fa fa-user-circle-o" ></i> Sign in</a>
+                                </li>
+                                <li className="divide-x text-gray-400">
+                                </li>
+                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
                                     <a href="#"><img src={etherIcon} width='28' /></a>
                                 </li>
                             </ul>

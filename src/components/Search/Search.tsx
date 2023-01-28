@@ -12,7 +12,7 @@ const Search = () => {
                 <option value="5">Websites</option>
             </select>
             <input type="text" placeholder='Search by Address / Txn Hash / Block / Token / Ens' className='form-input text-xs py-3 border-gray-300 w-96' />
-            <button type="submit" className='form-input text-white py-3 text-xs rounded-r-lg bg-[#3498db] border-[#3498db] hover:shadow-lg shadow-blue-500/50'>search</button>
+            <button type="submit" className='form-input text-white py-3 text-xs rounded-r-lg bg-[#3498db] border-[#3498db] hover:shadow-lg shadow-blue-500/50'><i className="fa fa-search" aria-hidden="true"></i></button>
         </form>
     );
 }

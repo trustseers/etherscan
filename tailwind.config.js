@@ -10,7 +10,7 @@ module.exports = {
       backgroundImage:
         {
           'footer_bg': "url('/src/assets/images/abstract-shapes-20.svg')",
-          'footer_map': "url('/src/assets/images/world-map-white.png') no-repeat 0 30%;",
+          'footer_map': "url('/src/assets/images/world-map-white.png')",
         }
     }
   },
