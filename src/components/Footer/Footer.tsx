@@ -1,8 +1,6 @@
 import React, { useState  } from 'react';
 import etherImg from '../../assets/images/ethereum.svg';
 
-import './Footer.css';
-
 const Footer = () => {
     return (
         <div className='bg-[#21325b] bg-footer_bg py-4'>

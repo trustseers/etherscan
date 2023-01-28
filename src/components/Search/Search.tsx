@@ -2,7 +2,7 @@ import React from 'react';
 
 const Search = () => {
     return (
-        <form action="#" method="get">
+        <form action="#" className="search-form" method="get">
             <select name="" className='form-select text-xs py-3 rounded-l-lg border-gray-300'>
                 <option value="0">All Filters</option>
                 <option value="1">Addresses</option>
