@@ -39,6 +39,11 @@
     border-top: 1px solid #e7eaf3;
     width: 100%;
 }
+.header-divide {
+    border-left: 1px solid #e7eaf3;
+    width: 1px;
+    height: 20px;
+}
 /* responsive style */
 @media (max-width: 768px) {
     .search-form select{
@@ -46,5 +51,8 @@
     }
     .search-form input {
         width: 77%;
+    }
+    .header-divide {
+        display: none;
     }
 }

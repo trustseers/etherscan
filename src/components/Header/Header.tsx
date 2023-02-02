@@ -6,12 +6,6 @@ const Header = () => {
     const [navbar, setNavbar] = useState(false);
     return (
         <div className=''>
-                        {/* <button className="peer px-5 py-2 bg-green-600 hover:bg-green-700 ">Dropdown</button>
-                        <div className="hidden peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
-                            <a className="px-5 py-3 hover:bg-gray-200" href="#">About Us</a>
-                            <a className="px-5 py-3 hover:bg-gray-200" href="#">Contact Us</a>
-                            <a className="px-5 py-3 hover:bg-gray-200" href="#">Privacy Policy</a>
-                        </div> */}
             <nav className="w-full shadow">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
@@ -60,30 +54,52 @@ const Header = () => {
                     <div>
                         <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
-                                    <a href="#">Home</a>
+                                <li className="text-gray-400 text-sm py-3" >
+                                    <a href="#" className='hover:text-[#3498db] py-3 md:py-5'>Home</a>
                                 </li>
-                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
-                                    <a href="#">Blockchain <i className="fa fa-angle-down" ></i></a>
+                                <li className="text-gray-400 text-sm py-3 hover:text-[#3498db] duration-[400ms,700ms]" >
+                                    <a href="#" className='peer duration-[400ms,700ms] py-3 md:py-5' >Blockchain <i className="fa fa-angle-down" ></i></a>
+                                    <div className="hidden peer-hover:flex hover:flex min-w-[230px] flex-col bg-white drop-shadow-lg absolute py-4 top-16 border-t-[3px] border-[#3498db] z-10">
+                                        <a className="text-xs px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View Txns</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View Pending Txns</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View Contract Internal Txns</a>
+                                        <div className="opacity-md"></div>
+                                        <a className="text-xs px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View Blocks</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">Forked Blocks (Reorgs)</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View Uncles</a>
+                                        <div className="opacity-md"></div>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">Top Accounts</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">Verified Contracts</a>
+                                    </div>
                                 </li>
-                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
-                                    <a href="#">Tokens <i className="fa fa-angle-down" ></i></a>
+                                <li className="text-gray-400 text-sm py-3" >
+                                    <a href="#" className='peer hover:text-[#3498db] py-3 md:py-5'>Tokens <i className="fa fa-angle-down" ></i></a>
+                                    <div className="hidden peer-hover:flex hover:flex min-w-[230px] flex-col bg-white drop-shadow-lg absolute py-4 top-16 border-t-[3px] border-[#3498db] z-10">
+                                        <a className="text-xs px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">ERC20 Top Tokens</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View ERC20 Transfers</a>
+                                        <div className="opacity-md"></div>
+                                        <a className="text-xs px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">ERC721 Top Tokens</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View ERC721 Transfers</a>
+                                        <div className="opacity-md"></div>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">ERC1155 Top Tokens</a>
+                                        <a className="text-xs  px-5 py-2 text-gray-400 hover:text-[#3498db]" href="#">View ERC1155 Transfers <span className="bg-[#00c9a7] text-white text-[9px] mr-1 px-[5px] py-[2px] rounded-md relative -top-[5px]">New</span></a>
+                                    </div>
                                 </li>
-                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
-                                    <a href="#">Resources <i className="fa fa-angle-down" ></i></a>
+                                <li className="text-gray-400 text-sm py-3">
+                                    <a href="#" className='peer hover:text-[#3498db] py-3 md:py-5' >Resources <i className="fa fa-angle-down" ></i></a>
                                 </li>
-                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
-                                    <a href="#">More <i className="fa fa-angle-down" ></i></a>
+                                <li className="text-gray-400 text-sm py-3">
+                                    <a href="#" className='peer hover:text-[#3498db] py-3 md:py-5' >More <i className="fa fa-angle-down" ></i></a>
                                 </li>
-                                <li className="divide-x text-gray-400">
+                                <li className="header-divide text-gray-400">
                                 </li>
-                                <li className="divide-x text-gray-400 hover:text-[#3498db] text-sm">
+                                <li className="divide-x text-gray-400 text-sm py-3">
                                     <a href="#"><i className="fa fa-user-circle-o" ></i> Sign in</a>
                                 </li>
-                                <li className="divide-x text-gray-400">
+                                <li className="header-divide text-gray-400">
                                 </li>
-                                <li className="text-gray-400 hover:text-[#3498db] text-sm">
-                                    <a href="#"><img src={etherIcon} width='28' /></a>
+                                <li className="text-gray-400 text-sm bg-[#3498db]/[0.1] p-1 rounded-sm">
+                                    <a href="#" className='peer '><img src={etherIcon} width='19' /></a>
                                 </li>
                             </ul>
                         </div>
