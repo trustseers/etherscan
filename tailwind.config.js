@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        footer_bg: "url('/src/assets/images/abstract-shapes-20.svg')",
-        footer_map: "url('/src/assets/images/world-map-white.png')",
+        footerBg: "url('/src/assets/images/abstract-shapes-20.svg')",
+        footerMap: "url('/src/assets/images/world-map-white.png')",
       },
     },
   },

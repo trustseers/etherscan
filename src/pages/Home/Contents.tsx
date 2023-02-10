@@ -11,7 +11,6 @@ import axios from 'axios';
 
 const ehterscanApiKey = process.env.REACT_APP_ETHERSCAN_API_KEY;
 const moralisApiKey1 = process.env.REACT_APP_MORALIS_API_KEY_1;
-const moralisApiKey2 = process.env.REACT_APP_MORALIS_API_KEY_2;
 const etherscanEndpoint = 'https://api.etherscan.io/api';
 const moralisEndpoint = 'https://deep-index.moralis.io/api/v2';
 

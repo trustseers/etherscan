@@ -4,7 +4,7 @@ import ScrollToTop from './ScrollToTop';
 
 const Footer = () => {
   return (
-    <div className="bg-[#21325b] bg-footer_bg py-4">
+    <div className="bg-[#21325b] bg-footerBg py-4">
       <div className="flex justify-between  mx-auto lg:max-w-7xl md:items-center md:flex py-4">
         <div className="grid grid-cols-1 gap-8 px-6 md:grid-cols-4 mb-4 bg-footer_map bg-no-repeat">
           <div className="">
