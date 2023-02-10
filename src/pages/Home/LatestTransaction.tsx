@@ -1,4 +1,6 @@
 import React from 'react';
+import moment from 'moment';
+import 'moment-timezone';
 
 const LatestTransaction = (Txns: any) => {
   const listItem = Txns.recent
@@ -19,7 +21,11 @@ const LatestTransaction = (Txns: any) => {
               >
                 {Txn.hash.substring(0, 15)}...
               </a>
-              <p className="text-xs text-[#77838f]">1 secs ago</p>
+              <p className="text-xs text-[#77838f]">
+                {moment(Txn.block_timestamp)
+                  .tz('America/New_York')
+                  .fromNow(true)}
+              </p>
             </div>
           </div>
           <div className="col-span-3 md:col-span-2 flex justify-between">
@@ -48,6 +54,7 @@ const LatestTransaction = (Txns: any) => {
                 data-tooltip-target="tooltip-transaction"
                 className="ehter-label text-xs text-[#77838f]"
               >
+                {/*  */}
                 {Number(
                   (parseInt(Txn.value, 10) / Math.pow(10, 18)).toFixed(5)
                 )}

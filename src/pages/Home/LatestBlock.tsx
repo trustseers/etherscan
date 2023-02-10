@@ -17,7 +17,7 @@ const LatestBlocks = (Blocks: any) => {
               {block.number}
             </a>
             <p className="text-xs text-[#77838f]">
-              {moment(block.timestamp).tz('America/New_York').fromNow()}
+              {moment(block.timestamp).tz('America/New_York').fromNow(true)}
             </p>
           </div>
         </div>

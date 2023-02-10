@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Search from '../../components/Search/Search';
-import ether_1 from '../../assets/images/ethereum-1.svg';
-import icon_8 from '../../assets/images/icon-8.svg';
-import icon_2_1 from '../../assets/images/icon-2-1.svg';
-import icon_51 from '../../assets/images/icon-51.svg';
+import ether1 from '../../assets/images/ethereum-1.svg';
+import icon8 from '../../assets/images/icon-8.svg';
+import icon21 from '../../assets/images/icon-2-1.svg';
+import icon51 from '../../assets/images/icon-51.svg';
 import Chart from '../../components/Chart/Chart';
 import LatestBlocks from './LatestBlock';
 import LatestTransaction from './LatestTransaction';
 import axios from 'axios';
 
-const ehterscan_apiKey = process.env.REACT_APP_ETHERSCAN_API_KEY;
-const moralis_apiKey_1 = process.env.REACT_APP_MORALIS_API_KEY_1;
-const moralis_apiKey_2 = process.env.REACT_APP_MORALIS_API_KEY_2;
-const etherscan_endpoint = 'https://api.etherscan.io/api';
-const moralis_endpoint = 'https://deep-index.moralis.io/api/v2';
+const ehterscanApiKey = process.env.REACT_APP_ETHERSCAN_API_KEY;
+const moralisApiKey1 = process.env.REACT_APP_MORALIS_API_KEY_1;
+const moralisApiKey2 = process.env.REACT_APP_MORALIS_API_KEY_2;
+const etherscanEndpoint = 'https://api.etherscan.io/api';
+const moralisEndpoint = 'https://deep-index.moralis.io/api/v2';
 
 const Contents = () => {
   const [LTxn, setLTxn] = useState([]);
@@ -27,8 +27,8 @@ const Contents = () => {
     //get latest block no using EtherSCan API
     axios
       .get(
-        etherscan_endpoint +
-          `?module=proxy&action=eth_blockNumber&apikey=${ehterscan_apiKey}`
+        etherscanEndpoint +
+          `?module=proxy&action=eth_blockNumber&apikey=${ehterscanApiKey}`
       )
       .then(async (res) => {
         const blockNo = parseInt(res.data.result);
@@ -37,11 +37,11 @@ const Contents = () => {
         const getBlock: any = async (blockNo: number) => {
           return axios
             .get(
-              moralis_endpoint +
+              moralisEndpoint +
                 `/block/${blockNo}?chain=eth&include=internal_transactions`,
               {
                 headers: {
-                  'X-API-Key': moralis_apiKey_1,
+                  'X-API-Key': moralisApiKey1,
                   Accept: 'application/json',
                 },
               }
@@ -53,31 +53,30 @@ const Contents = () => {
         const getBlockReward: any = async (blockNo: number) => {
           return axios
             .get(
-              etherscan_endpoint +
-                `?module=block&action=getblockreward&blockno=${blockNo}&apikey=${ehterscan_apiKey}`
+              etherscanEndpoint +
+                `?module=block&action=getblockreward&blockno=${blockNo}&apikey=${ehterscanApiKey}`
             )
             .then((res) => res.data.result.blockReward);
         };
-
         // get recent block number list (latest ~ latest-5)
-        const block_arr: any[] = [];
-        const block_reward_arr: any[] = [];
-        for (let i = 0; i < 5; i++) {
+        const blockArr: any[] = [];
+        const blockRewardArr: any[] = [];
+        for (let i = 0; i < 1; i++) {
           if (i == 0) {
             setLTxn((await getBlock(blockNo)).transactions);
           }
-          block_arr.push(await getBlock(blockNo - i));
-          block_reward_arr.push(await getBlockReward(blockNo - i));
+          blockArr.push(await getBlock(blockNo - i));
+          blockRewardArr.push(await getBlockReward(blockNo - i));
         }
-        setReward(block_reward_arr);
-        setLBlock(block_arr);
+        setReward(blockRewardArr);
+        setLBlock(blockArr);
       });
 
     //get ether and btc price
     axios
       .get(
-        etherscan_endpoint +
-          `?module=stats&action=ethprice&apikey=${ehterscan_apiKey}`
+        etherscanEndpoint +
+          `?module=stats&action=ethprice&apikey=${ehterscanApiKey}`
       )
       .then(async (res) => {
         const etherPrice = res.data.result.ethusd.toLocaleString();
@@ -87,8 +86,8 @@ const Contents = () => {
         // get the market cap of ether in USD
         axios
           .get(
-            etherscan_endpoint +
-              `?module=stats&action=ethsupply&apikey=${ehterscan_apiKey}`
+            etherscanEndpoint +
+              `?module=stats&action=ethsupply&apikey=${ehterscanApiKey}`
           )
           .then((res) => {
             const cap = res.data.result;
@@ -122,7 +121,7 @@ const Contents = () => {
             <div className="pr-6 sm:col-span-1">
               <div className="flex items-center">
                 <div>
-                  <img src={ether_1} alt="" width={19} />
+                  <img src={ether1} alt="" width={19} />
                 </div>
                 <div className="ml-2">
                   <p className="text-xs text-gray-400">ETHER PRICE</p>
@@ -157,7 +156,7 @@ const Contents = () => {
               </div>
               <div className="flex items-center">
                 <div>
-                  <img src={icon_8} alt="" width={28} />
+                  <img src={icon8} alt="" width={28} />
                 </div>
                 <div className="ml-2">
                   <p className="text-xs text-gray-400">MARKET CAP</p>
@@ -183,7 +182,7 @@ const Contents = () => {
             <div className="md:px-6 md:border-r md:border-l sm:col-span-1 md:pt-0 pt-6">
               <div className="flex items-center">
                 <div>
-                  <img src={icon_2_1} alt="" width={29} />
+                  <img src={icon21} alt="" width={29} />
                 </div>
                 <div className="ml-2 w-full">
                   <div className="flex justify-between">
@@ -256,7 +255,7 @@ const Contents = () => {
                   <img
                     data-tooltip-target="ether-last-img"
                     data-tooltip-placement="top"
-                    src={icon_51}
+                    src={icon51}
                     alt=""
                     width={28}
                   />
