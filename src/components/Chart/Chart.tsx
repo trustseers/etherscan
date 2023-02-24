@@ -211,7 +211,7 @@ const options = {
 };
 const Chart = () => {
   return (
-    <div className="h-28 pt-2">
+    <div className="h-[105px] pt-2">
       <HighchartsReact
         highcharts={Highcharts}
         options={options}

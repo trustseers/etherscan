@@ -5,29 +5,45 @@ import 'moment-timezone';
 const LatestBlocks = (Blocks: any) => {
   const listItem = Blocks.recent.map((block: any, index: number) => (
     <div className="" key={index}>
-      <div className="grid grid-cols-3">
+      <div className="grid sm:grid-cols-3 grid-cols-1">
         <div className="flex items-center">
           <div>
-            <span className="bg-[#77838f]/[.06] p-4 rounded-md">
-              <span className="text-black	text-sm text-[#1e2022]">BK</span>
+            <span className="bg-[#77838f]/[.06] p-4 rounded-md hidden sm:block">
+              <i className="fa fa-cube text-black	text-sm text-[#1e2022] dark:text-[#f5f5f5]"></i>
+            </span>
+            <span className="hidden text-sm text-[#1e2022] latest-block dark:text-[#f5f5f5]">
+              Block
             </span>
           </div>
-          <div className="ml-2">
+          <div className="ml-2 flex sm:block">
             <a href="#" className="text-sm text-[#3498db] hover:text-[#1d6fa5]">
               {block.number}
             </a>
-            <p className="text-xs text-[#77838f]">
+            <p className="text-xs text-[#77838f] pl-2 pt-0.5 sm:pl-0 sm:pt-0">
               {moment(block.timestamp).tz('America/New_York').fromNow(true)}
             </p>
           </div>
         </div>
-        <div className="col-span-3 md:col-span-2 flex justify-between">
+        <div className="sm:col-span-2 flex justify-between">
           <div className="">
-            <p className="text-sm text-[#77838f]">
+            <p className="text-sm text-[#1e2022] dark:text-[#f5f5f5]">
               Fee Recipient
-              <a href="#" className="ml-2 text-[#3498db] hover:text-[#1d6fa5]">
+              <a
+                href="#"
+                className="ml-2 text-[#3498db] hover:text-[#1d6fa5]"
+                data-tooltip-target={`block-${block.miner}`}
+                data-tooltip-placement="bottom"
+              >
                 {block.miner.substring(0, 15)}...
               </a>
+              <div
+                id={`block-${block.miner}`}
+                role="tooltip"
+                className="absolute z-10 invisible inline-block py-1 px-2 text-[11px] font-medium text-white transition-opacity duration-300 bg-[#111b36] dark:bg-[#333] rounded-md shadow-sm opacity-0 tooltip"
+              >
+                View Historical Ether Price
+                <div className="tooltip-arrow" data-popper-arrow></div>
+              </div>
             </p>
             <p className="text-xs text-[#77838f]">
               <a
@@ -42,7 +58,8 @@ const LatestBlocks = (Blocks: any) => {
           <div className="">
             <span
               data-tooltip-target="tooltip-block"
-              className="ehter-label text-xs text-[#77838f]"
+              data-tooltip-placement="top"
+              className="font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-[#f5f5f5] dark:border-[#222] border border-gray-500 text-xs text-black hidden sm:block"
             >
               {Number(
                 (
@@ -62,7 +79,7 @@ const LatestBlocks = (Blocks: any) => {
           </div>
         </div>
       </div>
-      <div className="opacity-md"></div>
+      <div className="content-hr my-4"></div>
     </div>
   ));
   return <div>{listItem}</div>;

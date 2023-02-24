@@ -5,11 +5,14 @@ import Contents from './Contents';
 import './Home.css';
 
 const Home = () => {
+  const [darkToggle, setDarkToggle] = React.useState(false);
   return (
-    <div className="wrapper">
-      <Header />
-      <Contents />
-      <Footer />
+    <div className={`wrapper  ${darkToggle ? 'dark' : 'light'}`}>
+      <div className="dark:bg-[#181818]">
+        <Header dark={darkToggle} handleDark={setDarkToggle} />
+        <Contents />
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -7,30 +7,33 @@ const LatestTransaction = (Txns: any) => {
     .slice(Txns.recent.length - 10, Txns.recent.length)
     .map((Txn: any, index: number) => (
       <div className="" key={index}>
-        <div className="grid grid-cols-3">
+        <div className="grid sm:grid-cols-3 grid-cols-1">
           <div className="flex items-center">
             <div>
-              <span className="bg-[#77838f]/[.06] p-4 rounded-full">
-                <span className="text-black	text-sm text-[#1e2022]">Tx</span>
+              <span className="bg-[#77838f]/[.06] p-4 rounded-md hidden sm:block">
+                <i className="fa fa-list-alt text-black	text-sm text-[#1e2022] dark:text-[#f5f5f5]"></i>
+              </span>
+              <span className="hidden text-sm text-[#1e2022] latest-block dark:text-[#f5f5f5]">
+                TX#
               </span>
             </div>
-            <div className="ml-2">
+            <div className="ml-2 flex sm:block">
               <a
                 href="#"
                 className="text-sm text-[#3498db] hover:text-[#1d6fa5]"
               >
                 {Txn.hash.substring(0, 15)}...
               </a>
-              <p className="text-xs text-[#77838f]">
+              <p className="text-xs text-[#77838f] pl-2 pt-0.5 sm:pl-0 sm:pt-0">
                 {moment(Txn.block_timestamp)
                   .tz('America/New_York')
                   .fromNow(true)}
               </p>
             </div>
           </div>
-          <div className="col-span-3 md:col-span-2 flex justify-between">
+          <div className="sm:col-span-2 flex justify-between">
             <div className="">
-              <p className="text-sm text-[#77838f]">
+              <p className="text-sm text-[#1e2022] dark:text-[#f5f5f5]">
                 From{' '}
                 <a
                   href="#"
@@ -39,7 +42,7 @@ const LatestTransaction = (Txns: any) => {
                   {Txn.from_address.substring(0, 20)}...
                 </a>
               </p>
-              <p className="text-xs text-[#77838f]">
+              <p className="text-sm text-[#1e2022] dark:text-[#f5f5f5]">
                 To{' '}
                 <a
                   href="#"
@@ -47,19 +50,26 @@ const LatestTransaction = (Txns: any) => {
                 >
                   {Txn.to_address.substring(0, 20)}...
                 </a>
+                <span className="sm:hidden font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-[#f5f5f5] dark:border-[#222] border border-gray-500 text-xs text-black">
+                  {Number(
+                    (parseInt(Txn.value, 10) / Math.pow(10, 18)).toFixed(5)
+                  )}{' '}
+                  Eth
+                </span>
               </p>
             </div>
             <div className="">
-              <span
+              <a
                 data-tooltip-target="tooltip-transaction"
-                className="ehter-label text-xs text-[#77838f]"
+                data-tooltip-placement="top"
+                className="font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-[#f5f5f5] dark:border-[#222] border border-gray-500 text-xs text-black hidden sm:block"
               >
                 {/*  */}
                 {Number(
                   (parseInt(Txn.value, 10) / Math.pow(10, 18)).toFixed(5)
-                )}
+                )}{' '}
                 Eth
-              </span>
+              </a>
               <div
                 id="tooltip-transaction"
                 role="tooltip"
@@ -71,7 +81,7 @@ const LatestTransaction = (Txns: any) => {
             </div>
           </div>
         </div>
-        <div className="opacity-md"></div>
+        <div className="content-hr my-4"></div>
       </div>
     ));
   return <div>{listItem}</div>;
