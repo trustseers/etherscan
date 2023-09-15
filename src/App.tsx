@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 
 function App() {
   return (
-    <BrowserRouter basename={'/etherscan'}>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
@@ -13,3 +13,4 @@ function App() {
 }
 
 export default App;
+// deploy

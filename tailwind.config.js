@@ -30,7 +30,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('flowbite/plugin'),
-    require('tailwind-scrollbar')({ nocompatible: true }),
+    // require('tailwind-scrollbar')({ nocompatible: true }),
   ],
   typeRoots: ['../node_modules/@types', '../@types'],
   darkMode: 'class',
